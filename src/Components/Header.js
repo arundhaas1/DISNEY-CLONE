@@ -1,52 +1,72 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useDataLayerValue } from '../datalayer'
 import { auth, provider } from '../Firebase'
 
 const Header=()=> {
 
+    const[{user},dispatch]=useDataLayerValue()
+
+
     const onLogin=()=>{
-        auth.signInWithPopup(provider).then(result=>{console.log(result)})
+        auth.signInWithPopup(provider).then(result=>
+            (
+                dispatch({
+                    type:"SET_USER",
+                    user:result.user,
+                })
+            ))
         .catch(e=>alert(e.message))
     }
+
     return (
         <Nav>
             <Logo>
                 <img alt="" src="/Assets/logo.svg"></img>
             </Logo>
 
-            <Navmenu>
-                <a href="/home">
-                    <img alt="" src="/Assets/home-icon.svg" />
-                    <span>HOME</span>
-                </a>
-
-                <a href="/home">
-                    <img alt="" src="/Assets/search-icon.svg" />
-                    <span>SEARCH</span>
-                </a>
-
-                <a href="/home">
-                    <img alt="" src="/Assets/watchlist-icon.svg" />
-                    <span>WATCHLIST</span>
-                </a>
-
-                <a href="/home">
-                    <img alt="" src="/Assets/original-icon.svg" />
-                    <span>ORIGINALS</span>
-                </a>
-
-                <a href="/home">
-                    <img alt="" src="/Assets/movie-icon.svg" />
-                    <span>MOVIES</span>
-                </a>
-
-                <a href="/home">
-                    <img alt="" src="/Assets/series-icon.svg" />
-                    <span>SERIES</span>
-                </a>
-            </Navmenu>
-
+        {!user ? (
             <Login onClick={onLogin}>LOGIN</Login>
+        ):(
+            <Navmenu>
+            <a href="/home">
+                <img alt="" src="/Assets/home-icon.svg" />
+                <span>HOME</span>
+            </a>
+
+            <a href="/home">
+                <img alt="" src="/Assets/search-icon.svg" />
+                <span>SEARCH</span>
+            </a>
+
+            <a href="/home">
+                <img alt="" src="/Assets/watchlist-icon.svg" />
+                <span>WATCHLIST</span>
+            </a>
+
+            <a href="/home">
+                <img alt="" src="/Assets/original-icon.svg" />
+                <span>ORIGINALS</span>
+            </a>
+
+            <a href="/home">
+                <img alt="" src="/Assets/movie-icon.svg" />
+                <span>MOVIES</span>
+            </a>
+
+            <a href="/home">
+                <img alt="" src="/Assets/series-icon.svg" />
+                <span>SERIES</span>
+            </a>
+
+
+           <a href="/">
+                <span className="logout">LOGOUT</span>
+            </a>
+
+        </Navmenu>
+        )}
+
         </Nav>
     )
 }
@@ -158,6 +178,7 @@ const Login=styled.a`
     }
 
 `;
+
 
 
 
