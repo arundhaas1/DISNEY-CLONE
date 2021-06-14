@@ -2,9 +2,21 @@ import React from 'react'
 import styled from 'styled-components'
 import { useDataLayerValue } from '../datalayer'
 import Home from './Home'
+import { auth, provider } from '../Firebase'
 
 const Login =()=>{
     const[{user},dispatch]=useDataLayerValue()
+
+    const onLogin=()=>{
+        auth.signInWithPopup(provider).then(result=>
+            (
+                dispatch({
+                    type:"SET_USER",
+                    user:result.user,
+                })
+            ))
+        .catch(e=>alert(e.message))
+    }
 
     return (
         <Container>
@@ -12,7 +24,7 @@ const Login =()=>{
                     <Content>
                     <CTA>
                         <CTAone alt="" src="/Assets/cta-logo-one.svg"/>
-                        <Signin>GET ALL THERE</Signin>
+                        <Signin onClick={onLogin}>GET ALL THERE</Signin>
                         <Description>Get Premier Access to Rays and the Last Dragon for an additional fee with a Disney+Subscription.As of 02/06/2021,the Price of Disney Plus and the Disney Bundle will increase by $1</Description>
                         <CTAtwo alt="" src="/Assets/cta-logo-two.png"></CTAtwo>
                     </CTA>
@@ -87,6 +99,7 @@ const Signin =styled.a`
     background-color: #0063e5;
     color: #f9f9f9;
     max-width: 650px;
+    cursor: pointer;
     width: 80vw;
     margin-bottom: 12px;
     padding: 16.5px 0;
