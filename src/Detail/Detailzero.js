@@ -57,7 +57,7 @@ const Play=styled.button`
     padding: 10px 9px;
     justify-content: center;
     background: rgb(255,255,255);
-    border: 2px solid rgb(255,255,255);
+    border: 2px solid rgb(254,255,255);
     border-radius: 6px;
     padding-right: 16px;
     font-weight: bolder;
