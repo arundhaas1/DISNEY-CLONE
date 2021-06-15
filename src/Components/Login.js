@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useDataLayerValue } from '../datalayer'
 import Home from './Home'
+import './Credit.css'
 import { auth, provider } from '../Firebase'
 
 const Login =()=>{
@@ -24,7 +25,7 @@ const Login =()=>{
                     <Content>
                     <CTA>
                         <CTAone alt="" src="/Assets/cta-logo-one.svg"/>
-                        <Signin onClick={onLogin}>GET ALL THERE</Signin>
+                        <Signin onClick={onLogin}>GET ALL THERE <span className="credit">©Arun Dhas</span></Signin>
                         <Description>Get Premier Access to Rays and the Last Dragon for an additional fee with a Disney+Subscription.As of 02/06/2021,the Price of Disney Plus and the Disney Bundle will increase by $1</Description>
                         <CTAtwo alt="" src="/Assets/cta-logo-two.png"></CTAtwo>
                     </CTA>
