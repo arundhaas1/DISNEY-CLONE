@@ -30,7 +30,7 @@ function Newdisney() {
                 </Wrap>
 
                 <Wrap>
-                    <Link to="/detailfiftteen">
+                    <Link to="/detailfifteen">
                         <img alt="" src={Movies[15].cardImg}/>
                     </Link>
                 </Wrap>
