@@ -109,6 +109,7 @@ const Navmenu=styled.div`
         display: flex;
         align-items: center;
         padding: 0 12px;
+        /* cursor: pointer; */
 
     img{
         height: 20px;
@@ -128,6 +129,7 @@ const Navmenu=styled.div`
         font-size: 13px;
         margin-top: 5px;
         margin-left: 3px;
+        /* cursor: pointer; */
 
     &:before{
         background-color: rgb(249,249,249);
@@ -170,6 +172,7 @@ const Login=styled.a`
     border:1px solid #f9f9f9;
     border-radius: 4px;
     transition: all .2s ease 0s;
+    cursor: pointer;
 
     &:hover{
         background-color: #f9f9f9;
