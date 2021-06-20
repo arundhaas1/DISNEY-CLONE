@@ -1,4 +1,5 @@
 import React from 'react'
+import './Home.css'
 import styled from 'styled-components'
 import ImgSlider from './ImgSlider'
 import Viewers from './Viewers'
@@ -9,7 +10,7 @@ import Trending from './Trending'
 
 const Home=()=> {
     return (
-        <Container>
+        <Container className="conts">
             <ImgSlider />
             <Viewers />
             <Recommends />
@@ -28,6 +29,7 @@ const Container =styled.main`
    top: 72px;
    padding: 0 calc(3.5vw+5px);
    /* height: 100%; */
+
 
     &:after{
      background-color: #040714;
